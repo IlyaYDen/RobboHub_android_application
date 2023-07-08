@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RobboHub</string>
+
+
+    <string name="login_button">sign in</string>
+    <string name="registration_button">sign up</string>
+    <string name="goto_registration_button">dont have account? Go to sign up</string>
+    <string name="phone">phone</string>
+    <string name="password">password</string>
+    <string name="password_repeat">password_repeat</string>
+    <string name="goto_login_button">goto_login_button</string>
+</resources>
