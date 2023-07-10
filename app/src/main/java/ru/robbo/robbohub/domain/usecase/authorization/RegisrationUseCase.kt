@@ -20,7 +20,7 @@ class RegisrationUseCase @Inject constructor(
         val passwordSha = BigInteger(1, md.digest((StringBuilder(password).append(phone).toString()).toByteArray())).toString(16).padStart(32, '0')
 
 
-        repository.registrationCall(UserEntity(UUID.randomUUID(),phone,passwordSha))
+        repository.registrationCall(UserEntity(UUID.randomUUID().toString(),phone,passwordSha))
     }
 
     fun generateNonce(): ByteArray {

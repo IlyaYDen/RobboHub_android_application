@@ -1,13 +1,13 @@
 package ru.robbo.robbohub.di
 
 import android.app.Application
-import android.content.Context
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ru.robbo.robbohub.data.database.dataBase
+import ru.robbo.robbohub.data.database.AuthorizationDao
+import ru.robbo.robbohub.data.database.DataBase
 import javax.inject.Singleton
 
 @Module
@@ -16,16 +16,22 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun providePasswordDb(app: Application): dataBase {
+    fun providePasswordDb(app: Application): DataBase {
         return synchronized(this) {
 
             val dbBuilder = Room.databaseBuilder(
-                app,//	yury.v.denisov@gmail.com
-                dataBase::class.java,
-                dataBase.DATABASE_NAME
+                app,
+                DataBase::class.java,
+                DataBase.DATABASE_NAME
             )
                 .build()
             dbBuilder
         }
+    }
+
+    @Provides
+    @Singleton
+    fun providePasswordDao(db: DataBase): AuthorizationDao {
+        return db.authorizationDao
     }
 }

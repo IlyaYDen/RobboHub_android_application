@@ -1,5 +1,6 @@
 package ru.robbo.robbohub.data.repository
 
+import android.util.Log
 import ru.robbo.robbohub.data.database.AuthorizationDao
 import ru.robbo.robbohub.data.model.UserEntityMapper
 import ru.robbo.robbohub.domain.model.UserEntity
@@ -14,8 +15,14 @@ class AuthorizationRepositoryImpl @Inject constructor(
         authorizationDao.registrationUser(UserEntityMapper().mapEntityToDbModel(userEntity))
     }
 
-    override suspend fun authorizationCall(userEntity: UserEntity) {
-        authorizationDao.registrationUser(UserEntityMapper().mapEntityToDbModel(userEntity))
+    override suspend fun authorizationCall(userEntity: UserEntity) : Int{
+
+        authorizationDao.getUsers().forEach {
+            if(userEntity.phone == it.phone && userEntity.password == it.password)
+                return 1
+        }
+
+        return 0//authorizationDao.authorizationUser(UserEntityMapper().mapEntityToDbModel(userEntity))
     }
 
     override suspend fun accountRecoveryCall() {

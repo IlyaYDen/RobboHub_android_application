@@ -1,5 +1,6 @@
 package ru.robbo.robbohub.ui.authorization
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -21,16 +23,33 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import ru.robbo.robbohub.R
 import ru.robbo.robbohub.ui.NavigationPath
 import ru.robbo.robbohub.ui.components.CustomTextField
+import ru.robbo.robbohub.ui.registration.RegistrationViewModel
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun AuthorizationScreen(
     navController: NavController
 ) {
+
+    val vm = hiltViewModel<AuthorizationViewModel>()
+
+
+
+    val authStatus = remember { vm.getAuthorizationStatus() }
+    LaunchedEffect(authStatus) {
+        authStatus.collect {
+            loginMode ->
+            if(loginMode == LoginMode.ONLINE)
+            navController.navigate(
+                NavigationPath.Start.path)
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -54,8 +73,9 @@ fun AuthorizationScreen(
         )
         Spacer(modifier = Modifier.height(5.dp))
         Button(onClick = {
-            navController.navigate(
-                NavigationPath.Authorization.path)
+            //navController.navigate(
+            //    NavigationPath.Authorization.path)
+            vm.authorization(phone = phone.text, password = password.text)
 
         },
 

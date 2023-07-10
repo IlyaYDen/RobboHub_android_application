@@ -24,7 +24,7 @@ import ru.robbo.robbohub.ui.registration.RegistrationScreen
 import ru.robbo.robbohub.ui.start.StartScreen
 import ru.robbo.robbohub.ui.theme.RobboHubTheme
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
 
@@ -46,8 +46,8 @@ class MainActivity : ComponentActivity() {
             modifier = Modifier
                 .background(
                     brush = Brush.linearGradient(
-                        0f to Color(0xff202327),
-                        1f to Color(0xff26292d),
+                        0f to Color(0x02202327),
+                        1f to Color(0x0226292d),
                         start = Offset.Zero,
                         end = Offset.Infinite,
                         tileMode = TileMode.Clamp
@@ -93,7 +93,7 @@ class MainActivity : ComponentActivity() {
                     // todo
                 }
                 RegistrationScreen(
-                    navController,
+                    navController
 
                 )
             }

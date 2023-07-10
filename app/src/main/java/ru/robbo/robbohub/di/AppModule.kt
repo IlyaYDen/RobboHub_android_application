@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import ru.robbo.robbohub.data.database.AuthorizationDao
 import ru.robbo.robbohub.data.repository.AuthorizationRepositoryImpl
 import ru.robbo.robbohub.domain.repository.AuthorizationRepository
 import javax.inject.Singleton
@@ -14,7 +15,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideAuthorizationRepository(): AuthorizationRepository {
-        return AuthorizationRepositoryImpl()
+    fun provideAuthorizationRepository(authorizationDao: AuthorizationDao): AuthorizationRepository {
+        return AuthorizationRepositoryImpl(authorizationDao)
     }
 }
