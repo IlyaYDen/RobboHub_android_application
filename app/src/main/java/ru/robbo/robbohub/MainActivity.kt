@@ -20,6 +20,7 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ru.robbo.robbohub.ui.NavigationPath
 import ru.robbo.robbohub.ui.authorization.AuthorizationScreen
+import ru.robbo.robbohub.ui.mainApplication.ApplicationScreen
 import ru.robbo.robbohub.ui.registration.RegistrationScreen
 import ru.robbo.robbohub.ui.start.StartScreen
 import ru.robbo.robbohub.ui.theme.RobboHubTheme
@@ -96,6 +97,15 @@ class MainActivity : ComponentActivity() {
                     navController
 
                 )
+            }
+            composable(
+                route = NavigationPath.MainApplication.path
+            ) {
+
+                BackHandler(true) {
+                    // todo
+                }
+                ApplicationScreen()
             }
         }
     }
