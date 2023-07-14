@@ -64,7 +64,7 @@ fun RobboHubTheme(
 
     MaterialTheme(
             colorScheme = colorScheme,
-            typography = Typography,
+            typography = mainFont,
             content = content
     )
 }

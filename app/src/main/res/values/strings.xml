@@ -2,11 +2,19 @@
     <string name="app_name">RobboHub</string>
 
 
-    <string name="login_button">sign in</string>
-    <string name="registration_button">sign up</string>
-    <string name="goto_registration_button">dont have account? Go to sign up</string>
-    <string name="phone">phone</string>
-    <string name="password">password</string>
-    <string name="password_repeat">password_repeat</string>
+    <string name="login_button">LOGIN</string>
+    <string name="log_in_button">LOG IN</string>
+    <string name="auth_page_main_text">Login</string>
+    <string name="registration_button">SIGN UP</string>
+    <string name="goto_registration_button">SIGNUP</string>
+    <string name="phone">Phone number</string>
+    <string name="password">Password</string>
+    <string name="password_repeat">Repeat Password</string>
     <string name="goto_login_button">goto_login_button</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="forgot_password">FORGOT PASSWORD?</string>
+    <string name="register_page_main_text">Signup</string>
+    <string name="already_have_account">ALREADY HAVE AN ACCOUNT?\n</string>
+    <string name="simply_interesting_freedom">Simply. Interesting. Freedom.</string>
+    <string name="see_details">ПОСМОТРЕТЬ ДЕТАЛИ</string>
 </resources>
