@@ -15,9 +15,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class ViewModelModule {
 
-    @Provides
-    @Singleton
-    fun provideRegistrationViewModel(registrationUseCases: AuthorizationUseCases): RegistrationViewModel {
-        return RegistrationViewModel(registrationUseCases)
-    }
+    //@Provides
+    //@Singleton
+    //fun provideRegistrationViewModel(registrationUseCases: AuthorizationUseCases): RegistrationViewModel {
+    //    return RegistrationViewModel(registrationUseCases)
+    //}
 }

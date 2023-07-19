@@ -12,6 +12,7 @@ import ru.robbo.robbohub.data.model.UserEntityDbModel
 )
 abstract class DataBase : RoomDatabase() {
     abstract val authorizationDao: AuthorizationDao
+    abstract val newsDao: NewsDao
 
     companion object {
         const val DATABASE_NAME = "records_db"

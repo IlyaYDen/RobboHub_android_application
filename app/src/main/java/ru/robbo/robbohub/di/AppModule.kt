@@ -5,8 +5,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ru.robbo.robbohub.data.database.AuthorizationDao
+import ru.robbo.robbohub.data.database.NewsDao
 import ru.robbo.robbohub.data.repository.AuthorizationRepositoryImpl
+import ru.robbo.robbohub.data.repository.NewsRepositoryImpl
 import ru.robbo.robbohub.domain.repository.AuthorizationRepository
+import ru.robbo.robbohub.domain.repository.NewsRepository
 import javax.inject.Singleton
 
 @Module
@@ -17,5 +20,11 @@ object AppModule {
     @Singleton
     fun provideAuthorizationRepository(authorizationDao: AuthorizationDao): AuthorizationRepository {
         return AuthorizationRepositoryImpl(authorizationDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNewsRepository(newsDao: NewsDao): NewsRepository {
+        return NewsRepositoryImpl(newsDao)
     }
 }

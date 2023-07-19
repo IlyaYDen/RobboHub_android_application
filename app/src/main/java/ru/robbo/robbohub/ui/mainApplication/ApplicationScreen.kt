@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -36,6 +37,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.Navigation
 import androidx.navigation.compose.rememberNavController
+import ru.robbo.robbohub.ui.NavigationPath
 import ru.robbo.robbohub.ui.components.bottomNavigation.BottomNavItem
 import ru.robbo.robbohub.ui.components.bottomNavigation.BottomNavigationBar
 import ru.robbo.robbohub.ui.theme.oswaldFamily
@@ -50,6 +52,7 @@ fun ApplicationScreen() {
         topBar = {
             Column(
 
+                modifier = Modifier.height(65.dp),
             ) {
 
                 TopAppBar(
@@ -111,7 +114,10 @@ fun ApplicationScreen() {
             }
         },
         bottomBar = {
-            Column() {
+            Column(
+
+                modifier = Modifier.height(65.dp),
+            ) {
 
                 Box(
                     Modifier
@@ -153,6 +159,8 @@ fun ApplicationScreen() {
             }
         },
     ) {
-        MainNavigation(navController = navController2)
+        Box(modifier = Modifier.fillMaxSize().padding(top = 58.dp, bottom = 58.dp)) {
+            MainNavigation(navController = navController2)
+        }
     }
 }

@@ -31,9 +31,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import ru.robbo.robbohub.R
+import ru.robbo.robbohub.domain.model.NewsEntity
+import ru.robbo.robbohub.ui.NavigationPath
 import ru.robbo.robbohub.ui.components.CustomTextField
 import ru.robbo.robbohub.ui.components.CustomTextFieldWithName
+import ru.robbo.robbohub.ui.mainApplication.MainNavigationPath
 import ru.robbo.robbohub.ui.theme.oswaldFamily
 
 
@@ -46,14 +50,15 @@ fun NewComponentPreview(){
         //.background(color = Color.White)
     ) {
         Column() {
-            NewsComponent()
-            NewsComponent()
+            //NewsComponent()
+            //NewsComponent()
         }
     }
 }
 @Composable
 fun NewsComponent(
-    newsName: String = "МИССИЯ РОББО",
+    newsItem: NewsEntity,
+    navController: NavController
 
 ) {
     Surface(
@@ -80,7 +85,7 @@ fun NewsComponent(
             ) {
 
 
-                Text(text = newsName,
+                Text(text = newsItem.name,
                     fontFamily = oswaldFamily,
                     fontWeight = FontWeight.Bold,
                     //fontSize = 24,
@@ -100,8 +105,9 @@ fun NewsComponent(
                     color = Color(0, 164, 0),
                     fontSize = 14.sp,
                     modifier = Modifier.clickable {
-                        // navController.navigate(
-                        //     NavigationPath.Registration.path)
+                         navController.navigate(
+                             MainNavigationPath.newsInfo.withArgs(Pair("new_id",newsItem.id))
+                         )
                     }
                         .padding(16.dp)
                 )

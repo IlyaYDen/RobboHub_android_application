@@ -83,7 +83,7 @@ fun AuthorizationScreen(
         Spacer(modifier = Modifier.height(45.dp))
 
         val pattern = remember { Regex("^\\d+\$") }
-        val phone = remember { mutableStateOf<String>("") }
+        val phone = remember { mutableStateOf<String>("11111111111") }
         CustomTextFieldWithName(
             value = phone,
             hint = stringResource(R.string.enter_phone_number),
@@ -97,7 +97,7 @@ fun AuthorizationScreen(
         )
         Spacer(modifier = Modifier.height(20.dp))
 
-        val password = remember { mutableStateOf<String>("") }
+        val password = remember { mutableStateOf<String>("11111111111") }
         CustomTextFieldWithName(
             value = password,
             hint = "Enter Password",

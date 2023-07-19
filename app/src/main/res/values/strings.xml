@@ -17,4 +17,9 @@
     <string name="already_have_account">ALREADY HAVE AN ACCOUNT?\n</string>
     <string name="simply_interesting_freedom">Simply. Interesting. Freedom.</string>
     <string name="see_details">ПОСМОТРЕТЬ ДЕТАЛИ</string>
+    <string name="register_init_main_text">Initialization</string>
+    <string name="enter_user_name">Enter User Name</string>
+    <string name="user_name">User Name</string>
+    <string name="profile_select_image">Select Image</string>
+    <string name="continue_">Continue</string>
 </resources>

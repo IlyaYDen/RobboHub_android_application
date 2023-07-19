@@ -110,7 +110,6 @@ fun RegistrationScreen(
             textFieldName = stringResource(R.string.password_repeat),
             visualTransformation = PasswordVisualTransformation()
         )
-//todo passwordRepeat
         Spacer(modifier = Modifier.height(45.dp))
 
         CustomButtonFilled(
