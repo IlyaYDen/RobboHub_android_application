@@ -85,7 +85,7 @@ fun CustomTextFieldPreview(){
     Box(modifier = Modifier
         .fillMaxWidth()
         .background(color = Color.White)) {
-        Column() {
+        Column {
             CustomTextField(
                 value = text,
                 hint = "Enter Password",
@@ -141,7 +141,7 @@ fun CustomTextFieldWithName(
         textAlign = TextAlign.Left,
     )){
 
-    Column() {
+    Column {
 
         Text(
             text = textFieldName,

@@ -22,4 +22,18 @@
     <string name="user_name">User Name</string>
     <string name="profile_select_image">Select Image</string>
     <string name="continue_">Continue</string>
+    <string name="news_screen_name">Новости</string>
+    <string name="news_list_name">News list name</string>
+    <string name="no_text" />
+    <string name="links_screen_name">links</string>
+    <string name="account_screen_name">account</string>
+    <string name="account_city_text">City</string>
+    <string name="account_on_map_text">on map</string>
+    <string name="account_open_in_robbo_crm_button">ОТКРЫТЬ В РОББО ЦРМ</string>
+    <string name="account_goto_course_button">ПЕРЕЙТИ НА КУРС</string>
+    <string name="account_my_score_button">МОИ БАЛЛЫ</string>
+    <string name="account_logout_button">LOGOUT\n</string>
+    <string name="account_club_text">Клуб</string>
+    <string name="settings_user_name">user name</string>
+    <string name="save_settings">SAVE</string>
 </resources>

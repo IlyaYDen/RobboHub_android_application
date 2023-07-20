@@ -8,16 +8,22 @@ class UserEntityMapper {
         return UserEntityDbModel(
             id = userEntity.id,
             password = userEntity.password,
-            permissions = userEntity.permissions,
-            phone = userEntity.phone
+            user_name = userEntity.user_name,
+            phone = userEntity.phone,
+            city = userEntity.city,
+            club = userEntity.club,
+            score = userEntity.score
         )
     }
     fun mapDbModelToEntity(userEntityDbModel: UserEntityDbModel) : UserEntity {
         return UserEntity(
             id = userEntityDbModel.id,
             password = userEntityDbModel.password,
-            permissions = userEntityDbModel.permissions,
-            phone = userEntityDbModel.phone
+            user_name = userEntityDbModel.user_name,
+            phone = userEntityDbModel.phone,
+            city = userEntityDbModel.city,
+            club = userEntityDbModel.club,
+            score = userEntityDbModel.score
         )
     }
     fun mapListDbModelToListEntity(list: List<UserEntityDbModel>) : List<UserEntity>{

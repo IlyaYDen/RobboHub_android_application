@@ -6,9 +6,11 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import ru.robbo.robbohub.data.database.AccountDao
 import ru.robbo.robbohub.data.database.AuthorizationDao
 import ru.robbo.robbohub.data.database.DataBase
 import ru.robbo.robbohub.data.database.NewsDao
+import ru.robbo.robbohub.domain.model.UserEntity
 import javax.inject.Singleton
 
 @Module
@@ -40,5 +42,21 @@ class DataModule {
     @Singleton
     fun provideNewDao(db: DataBase): NewsDao {
         return db.newsDao
+    }
+    @Provides
+    @Singleton
+    fun provideAccountDao(db: DataBase): AccountDao {
+        return db.accountDao
+    }
+    @Provides
+    @Singleton
+    fun provideUserData(): UserEntity {
+        return UserEntity(
+            user_name = "",
+
+            password = "",
+            phone = "",
+            id = ""
+        )
     }
 }

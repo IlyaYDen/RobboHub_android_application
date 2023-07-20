@@ -14,15 +14,18 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TileMode
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import dagger.hilt.android.AndroidEntryPoint
 import ru.robbo.robbohub.ui.NavigationPath
-import ru.robbo.robbohub.ui.authorization.AuthorizationScreen
+import ru.robbo.robbohub.ui.authorization.authorization.AuthorizationScreen
 import ru.robbo.robbohub.ui.mainApplication.ApplicationScreen
-import ru.robbo.robbohub.ui.registration.RegistrationScreen
-import ru.robbo.robbohub.ui.start.StartScreen
+import ru.robbo.robbohub.ui.authorization.accountInitialization.AccountInitializationScreen
+import ru.robbo.robbohub.ui.authorization.registration.RegistrationScreen
+import ru.robbo.robbohub.ui.authorization.start.StartScreen
 import ru.robbo.robbohub.ui.theme.RobboHubTheme
 
 @AndroidEntryPoint
@@ -85,6 +88,22 @@ class MainActivity : ComponentActivity() {
                 AuthorizationScreen(
                     navController
                 )
+            }
+            composable(
+                route = NavigationPath.Initialization.path + "?id={id}",
+                arguments = listOf(
+                    navArgument("id") {type = NavType.StringType}
+                )
+            ) {
+
+                BackHandler(true) {
+                    // todo
+                }
+                it.arguments?.getString("id")?.let { it1 ->
+                    AccountInitializationScreen(
+                        navController, it1
+                    )
+                }
             }
             composable(
                 route = NavigationPath.Registration.path

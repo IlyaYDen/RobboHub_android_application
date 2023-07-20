@@ -54,8 +54,7 @@ fun NewScreen(
                     modifier = Modifier.padding(vertical = 5.dp)
                 )
                 {
-                    Column(
-                    ) {
+                    Column {
 
                         Image(
                             painter = painterResource(R.drawable.img),

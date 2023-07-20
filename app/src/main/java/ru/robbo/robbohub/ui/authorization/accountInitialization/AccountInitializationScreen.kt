@@ -1,4 +1,4 @@
-package ru.robbo.robbohub.ui.registration
+package ru.robbo.robbohub.ui.authorization.accountInitialization
 
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -35,6 +35,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import ru.robbo.robbohub.R
 import ru.robbo.robbohub.ui.NavigationPath
 import ru.robbo.robbohub.ui.components.CustomButtonFilled
@@ -46,9 +48,17 @@ import ru.robbo.robbohub.ui.theme.oswaldFamily
 @Composable
 @Preview
 fun AccountInitializationScreenPreview() {
-    AccountInitializationScreen()
-}@Composable
-fun AccountInitializationScreen() {
+//    AccountInitializationScreen()
+}
+@Composable
+fun AccountInitializationScreen(
+    navController: NavController,
+    account_id: String
+) {
+
+
+    val vm = hiltViewModel<AccountInitializationViewModel>()
+
 
     Column(
         modifier = Modifier
@@ -135,7 +145,14 @@ fun AccountInitializationScreen() {
         CustomButtonFilled(
             text = stringResource(id = R.string.continue_),
             onClick = {
+                val image = imageUri.value
+                if (image == null)
+                    { vm.addUserInfo(account_id,userName.value) }
+                else { vm.addUserInfo(account_id,userName.value, /*image*/) }
 
+                navController.navigate(
+                    NavigationPath.MainApplication.path
+                )
             },
             colors = ButtonDefaults.buttonColors(containerColor = greenMain),
         )

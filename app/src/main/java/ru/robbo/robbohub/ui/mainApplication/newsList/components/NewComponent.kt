@@ -49,7 +49,7 @@ fun NewComponentPreview(){
         .padding(6.dp)
         //.background(color = Color.White)
     ) {
-        Column() {
+        Column {
             //NewsComponent()
             //NewsComponent()
         }
@@ -68,8 +68,7 @@ fun NewsComponent(
         modifier = Modifier.padding(vertical = 5.dp)
         )
     {
-        Column(
-            ) {
+        Column {
 
             Image(
                 painter = painterResource(R.drawable.img),
